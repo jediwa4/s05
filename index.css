@@ -6,6 +6,7 @@
 
 body {
   font-family: "Merriweather Sans", sans-serif;
+  background-color: #d3d9d4;
 }
 
 .cnt {
@@ -27,14 +28,25 @@ h6 {
 }
 
 .ftr {
-  background-color: #2c2e3a;
-  color: #141619;
+  background-color: #124e66;
+  color: #d3d9d4;
 }
 
 .navbar {
-  color: #141619;
+  color: #2e3944;
+  background-color: #748d92;
 }
 
 footer {
-  color: #141619;
+  color: #2e3944;
+  background-color: #748d92;
+}
+
+#mainbody {
+  color: #2e3944;
+}
+
+.card {
+  background-color: #2e3944;
+  color: #d3d9d4;
 }
