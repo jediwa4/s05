@@ -1,5 +1,3 @@
-let totalLoad = parseInt(localStorage.getItem("Amount"));
-console.log(totalLoad);
 document.getElementById("total1").innerHTML = localStorage.getItem("Amount");
 
 function sendLoad() {
@@ -11,7 +9,6 @@ function sendLoad() {
     document.getElementById("monum").value != undefined &&
     document.getElementById("monum").value != 0
   ) {
-    let res = 0;
     let x = 0;
     x = document.getElementById("loadamount").value;
     res =
@@ -20,7 +17,11 @@ function sendLoad() {
     if (res >= 0) {
       let successtxt =
         x + " amount of load sent to " + document.getElementById("monum").value;
-      localStorage.setItem("Amount", res);
+      localStorage.setItem(
+        "Amount",
+        parseInt(localStorage.getItem("Amount")) -
+          document.getElementById("loadamount").value
+      );
       document.getElementById("result").innerHTML = successtxt;
       document.getElementById("total1").innerHTML =
         localStorage.getItem("Amount");
@@ -39,15 +40,15 @@ function getLoad() {
     document.getElementById("loadamount2").value != undefined &&
     document.getElementById("loadamount2").value != 0
   ) {
-    let res2 = 0;
     let y = 0;
     y = parseInt(document.getElementById("loadamount2").value);
-    res2 =
-      parseInt(localStorage.getItem("Amount")) +
-      parseInt(document.getElementById("loadamount2").value);
 
     let successtxt2 = y + " amount of loaded to your account";
-    localStorage.setItem("Amount", res2);
+    localStorage.setItem(
+      "Amount",
+      parseInt(localStorage.getItem("Amount")) +
+        parseInt(document.getElementById("loadamount2").value)
+    );
     document.getElementById("total1").innerHTML =
       localStorage.getItem("Amount");
     document.getElementById("result2").innerHTML = successtxt2;
