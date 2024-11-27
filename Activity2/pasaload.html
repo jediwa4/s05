@@ -3,30 +3,187 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      rel="stylesheet"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+    ></script>
+    <link rel="stylesheet" href="pasaload.css" />
     <title>Pasaload</title>
   </head>
-  <body>
-    <h1 id="total1"></h1>
-    <h2>Send Load</h2>
-    <label for="loadamount">Amount: </label>
-    <input id="loadamount" type="number" />
-    <label for="monum">Mobile Number: </label>
-    <input
-      type="number"
-      id="monum"
-      name="monum"
-      size="11"
-      maxlength="11"
-      minlength="11"
-    />
-    <button type="button" onclick="sendLoad()">Send</button>
-    <p id="result"></p>
-    <h2>Acquire Load</h2>
-    <label for="loadamount2">Amount: </label>
-    <input id="loadamount2" type="number" />
-    <button type="button" onclick="getLoad()">Submit</button>
-    <p id="result2"></p>
-    <button type="button" onclick="logout()">Logout</button>
+  <body class="gradient-custom">
+    <div class="container-fluid px-0" id="bg-div">
+      <div class="row justify-content-center">
+        <div class="col-lg-9 col-12">
+          <div class="card card0">
+            <div class="d-flex" id="wrapper">
+              <!-- Sidebar -->
+              <div class="bg-light border-right" id="sidebar-wrapper">
+                <div class="sidebar-heading pt-5 pb-4">
+                  <strong>ACTION</strong>
+                </div>
+                <div class="list-group list-group-flush">
+                  <a
+                    data-toggle="tab"
+                    href="#menu1"
+                    id="tab1"
+                    class="tabs list-group-item bg-light"
+                  >
+                    <div class="list-div my-2">&nbsp;&nbsp; Send Load</div>
+                  </a>
+                  <a
+                    data-toggle="tab"
+                    href="#menu2"
+                    id="tab2"
+                    class="tabs list-group-item active1"
+                  >
+                    <div class="list-div my-2">&nbsp;&nbsp; Get Load</div>
+                  </a>
+                </div>
+              </div>
+              <!-- Page Content -->
+              <div id="page-content-wrapper">
+                <div class="row pt-3" id="border-btm">
+                  <div class="col-4">
+                    <button
+                      class="btn btn-success mt-4 ml-3 mb-3"
+                      id="menu-toggle"
+                    >
+                      <div class="bar4"></div>
+                      <div class="bar4"></div>
+                      <div class="bar4"></div>
+                    </button>
+                  </div>
+                  <div class="col-8">
+                    <div class="row justify-content-right">
+                      <div class="col-12">
+                        <p class="mb-0 mr-4 mt-4 text-right">
+                          <button
+                            type="button"
+                            onclick="logout()"
+                            class="btn btn-danger"
+                          >
+                            Logout
+                          </button>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="row justify-content-right">
+                      <div class="col-12">
+                        <p class="mb-0 mr-4 text-right">
+                          Current Total Load:
+                          <span class="top-highlight" id="total1"></span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-content">
+                  <div id="menu1" class="tab-pane">
+                    <div class="row justify-content-center">
+                      <div class="col-11">
+                        <div class="form-card">
+                          <h3 class="mt-0 mb-4 text-center">
+                            Fill up all forms to send load
+                          </h3>
+                          <form onsubmit="event.preventDefault()">
+                            <div class="row">
+                              <div class="col-12">
+                                <div class="input-group">
+                                  <input id="loadamount" type="number" />
+                                  <label>AMOUNT</label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12">
+                                <div class="input-group">
+                                  <input
+                                    type="number"
+                                    id="monum"
+                                    name="monum"
+                                    size="11"
+                                    maxlength="11"
+                                    minlength="11"
+                                  />
+                                  <label>MOBILE NUMBER</label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-12">
+                                <button
+                                  type="button"
+                                  onclick="sendLoad()"
+                                  class="btn btn-success placeicon"
+                                >
+                                  Send
+                                </button>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-12">
+                                <p class="text-center mb-5" id="result"></p>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="menu2" class="tab-pane in active">
+                    <div class="row justify-content-center">
+                      <div class="col-11">
+                        <div class="form-card">
+                          <h3 class="mt-0 mb-4 text-center">
+                            Fill up the form to acquire load
+                          </h3>
+                          <form onsubmit="event.preventDefault()">
+                            <div class="row">
+                              <div class="col-12">
+                                <div class="input-group">
+                                  <input id="loadamount2" type="number" />
+                                  <label>AMOUNT</label>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="col-md-12">
+                                <button
+                                  type="button"
+                                  onclick="getLoad()"
+                                  class="btn btn-success placeicon"
+                                >
+                                  Send
+                                </button>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-12">
+                                <p class="text-center mb-5" id="result2"></p>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script>
       if (
         localStorage.getItem("User") == 0 ||
@@ -35,6 +192,42 @@
       ) {
         window.location.href = "index.html";
       }
+    </script>
+    <script
+      type="text/javascript"
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"
+    ></script>
+    <script type="text/javascript" src="#"></script>
+    <script type="text/javascript" src="#"></script>
+    <script type="text/javascript" src="#"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        //Menu Toggle Script
+        $("#menu-toggle").click(function (e) {
+          e.preventDefault();
+          $("#wrapper").toggleClass("toggled");
+        });
+
+        // For highlighting activated tabs
+        $("#tab1").click(function () {
+          $(".tabs").removeClass("active1");
+          $(".tabs").addClass("bg-light");
+          $("#tab1").addClass("active1");
+          $("#tab1").removeClass("bg-light");
+        });
+        $("#tab2").click(function () {
+          $(".tabs").removeClass("active1");
+          $(".tabs").addClass("bg-light");
+          $("#tab2").addClass("active1");
+          $("#tab2").removeClass("bg-light");
+        });
+      });
+    </script>
+    <script type="text/javascript">
+      var myLink = document.querySelector('a[href="#"]');
+      myLink.addEventListener("click", function (e) {
+        e.preventDefault();
+      });
     </script>
     <script src="index.js" type="text/JavaScript"></script>
   </body>
