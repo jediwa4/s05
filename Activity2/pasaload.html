@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pasaload</title>
+  </head>
+  <body>
+    <h1 id="total1"></h1>
+    <h2>Send Load</h2>
+    <label for="loadamount">Amount: </label>
+    <input id="loadamount" type="number" />
+    <label for="monum">Mobile Number: </label>
+    <input
+      type="number"
+      id="monum"
+      name="monum"
+      size="11"
+      maxlength="11"
+      minlength="11"
+    />
+    <button type="button" onclick="sendLoad()">Send</button>
+    <p id="result"></p>
+    <h2>Acquire Load</h2>
+    <label for="loadamount2">Amount: </label>
+    <input id="loadamount2" type="number" />
+    <button type="button" onclick="getLoad()">Submit</button>
+    <p id="result2"></p>
+    <button type="button" onclick="logout()">Logout</button>
+    <script>
+      if (
+        localStorage.getItem("User") == 0 ||
+        localStorage.getItem("User") == undefined ||
+        localStorage.getItem("User") == null
+      ) {
+        window.location.href = "index.html";
+      }
+    </script>
+    <script src="index.js" type="text/JavaScript"></script>
+  </body>
+</html>
