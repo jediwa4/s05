@@ -75,6 +75,9 @@ function submitLogin() {
   let password = document.getElementById("password").value;
   if (username == "admin" && password == "default123") {
     localStorage.setItem("User", 1);
+    if (localStorage.getItem("Amount") == null || localStorage.getItem("Amount") == undefined) {
+  localStorage.setItem("Amount", 0);
+}
     window.location.href = "pasaload.html";
   } else {
     document.getElementById("validation").innerHTML =
