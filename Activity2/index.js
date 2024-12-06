@@ -1,4 +1,7 @@
 document.getElementById("total1").innerHTML = localStorage.getItem("Amount");
+if (localStorage.getItem("Amount") == null || localStorage.getItem("Amount") == undefined) {
+  localStorage.setItem("Amount", 0);
+}
 
 function sendLoad() {
   var phoneno = /^\d{11}$/;
